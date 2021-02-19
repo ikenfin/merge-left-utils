@@ -1,4 +1,4 @@
-import { isLikeObject, alwaysTrue } from '../src/lib/util'
+import { isLikeObject, alwaysTrue } from '../src/util'
 
 test('alwaysTrue is always returns true', () => {
   expect(alwaysTrue()).toBe(true)

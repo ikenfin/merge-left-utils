@@ -1,5 +1,5 @@
-import { mergeLeftKeys } from '../src/lib/merge-left-keys'
-import { mergeLeft } from '../lib/merge-left'
+import { mergeLeftKeys } from '../src/merge-left-keys'
+import { mergeLeft } from '../src/merge-left'
 
 const source = {
   a: 'a',
