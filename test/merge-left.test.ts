@@ -1,7 +1,7 @@
 import { mergeLeftKeys } from '../src/merge-left-keys'
 import { mergeLeft } from '../src/merge-left'
 
-const source = {
+const source: Record<string, string> = {
   a: 'a',
   b: 'b',
   c: 'c',
@@ -9,7 +9,7 @@ const source = {
   e: 'e'
 }
 
-const target = {
+const target: Record<string, string> = {
   a: 'a from target',
   b: 'b from target',
   c: 'c from target',
@@ -39,7 +39,7 @@ test('check if mergeLeftKeys replaces only wanted keys', () => {
 })
 
 test('check if mergeLeftKeys customLogic callback grabs correct args', () => {
-  const customLogicFn = (key, _source, _target) => {
+  const customLogicFn = (key: string, _source: any, _target: any) => {
     expect(Object.keys(source).includes(key)).toBe(true)
     expect(_source).toStrictEqual(source)
     expect(_target).toStrictEqual(target)
@@ -51,12 +51,12 @@ test('check if mergeLeftKeys customLogic callback grabs correct args', () => {
 })
 
 test('test mergeLeftKeys customLogic callback', () => {
-  const customLogicFn = (key, source, target) => {
+  const customLogicFn = (key: string) => {
     return ![ 'a', 'b' ].includes(key)
   }
 
   const replacementResult = Object.keys(source).reduce((acc, key) => {
-    if (target[key] && customLogicFn(key, source, target)) {
+    if (target[key] && customLogicFn(key)) {
       return { ...acc, [key]: target[key] }
     }
     return { ...acc, [key]: source[key] }
