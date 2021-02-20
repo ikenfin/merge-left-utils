@@ -45,7 +45,7 @@ yarn add merge-left-utils
 
 ## Examples
 
-Visit [examples readme](https://github.com/ikenfin/merge-left-utils/tree/master/example/README.md) to see use case examples
+Visit [examples readme](https://github.com/ikenfin/merge-left-utils/blob/master/examples/README.md) to see use case examples
 
 ## Run tests
 
