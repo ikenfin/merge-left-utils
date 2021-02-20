@@ -4,6 +4,13 @@
   "description": "Merge objects without structure changes",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ikenfin/merge-left-utils/"
+  },
+  "bugs": {
+    "url": "https://github.com/ikenfin/merge-left-utils/issues"
+  },
   "files": [
     "dist"
   ],
