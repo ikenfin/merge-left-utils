@@ -9,6 +9,7 @@ Library provides functions for easy objects updates preserving their initial str
 
 I've created this library to simplify work with react state and apollo data in forms, but it may be used in various scenarios when you want update object fields values, but not object structure itself.
 
+
 **mergeLeftKeys (fields[], source, target) -> result**
 
 Copy fields, existing in source, from target
@@ -41,6 +42,10 @@ npm install merge-left-utils
 # with yarn
 yarn add merge-left-utils
 ```
+
+## Examples
+
+Visit [examples readme](https://github.com/ikenfin/merge-left-utils/tree/master/example/README.md) to see use case examples
 
 ## Run tests
 
