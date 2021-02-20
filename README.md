@@ -18,7 +18,7 @@ Copy fields, existing in source, from target
 const a = { a: 'a', b: 'b' }
 const b = { a: 'newA', b: 'newB' }
 
-mergeLeftKeys(['b'], a, b) // -> { a: 'a', b: 'newB' }
+mergeLeftKeys(['b'], a, b) // -> { b: 'newB' }
 ```
 
 **mergeLeft (source, target) -> result**
