@@ -1,6 +1,6 @@
 {
   "name": "merge-left-utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Merge objects without structure changes",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
