@@ -60,7 +60,7 @@ mergeLeftDropping(['b'], a, b) // -> { a: 'newA' }
 
 
 
-**mergeLeftSkipping<T> (skipKeys: string[], source: T, target: T) -> result: T**
+**mergeLeftExcept<T> (skippingKeys: string[], source: T, target: T) -> result: T**
 
 Acts as mergeLeft but skip keys from **skipKeys** from being replaced
 
@@ -69,7 +69,7 @@ const a = { a: 'a', b: 'b' }
 const b = { a: 'newA', b: 'newB' }
 
 // replace [a.b] with [b.b], skipping replace [a.a]
-mergeLeftSkipping(['a'], a, b) // -> { a: 'a', b: 'newB' }
+mergeLeftExcept(['a'], a, b) // -> { a: 'a', b: 'newB' }
 ```
 
 
