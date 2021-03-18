@@ -3,27 +3,38 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
 [![Twitter: realtominoff](https://img.shields.io/twitter/follow/realtominoff.svg?style=social)](https://twitter.com/realtominoff)
 
-> Merge objects without structure changes
+> Merge objects without structural changes
 
-Library provides functions for easy objects updates preserving their initial structure.
+Library provides bunch of functions to simplify objects updates, preserving their initial structure.
 
 I've created this library to simplify work with react state and apollo data in forms, but it may be used in various scenarios when you want update object fields values, but not object structure itself.
 
+**mergeLeftKeys<T> (fields: string[], source: T, target: T, replaceDecision: Function) -> result: T**
 
-**mergeLeftKeys (fields[], source, target) -> result**
+Copy fields, existing in source, from target. **replaceDecision** is user level function to make decision about replacing key.
 
-Copy fields, existing in source, from target
+**Arguments:**
+
+* fields: array of strings - which fields are being remain in result
+* source: js object with source data
+* target: js object with target data
+* replaceDecision: boolean function of 3 - **(key: string, source, target) => boolean** - if returns true - field from {source} will be replaced with **target[key]**, else field replacing skips
 
 ```javascript
 const a = { a: 'a', b: 'b' }
 const b = { a: 'newA', b: 'newB' }
 
+// simple case: operate only with {b} key
 mergeLeftKeys(['b'], a, b) // -> { b: 'newB' }
+
+// custom replace logic: do not replace {b} key
+// signature: (key: string, source: T, target: Partial<T>) => boolean
+mergeLeftKeys(['a', 'b'], a, b, (key) => key !== 'b')
 ```
 
-**mergeLeft (source, target) -> result**
+**mergeLeft<T> (source: T, target: T) -> result: T**
 
-Function mergeLeft copies all fields, existing in source, from target. Fields that not present in source are ignored
+Simple binary function - copies all fields from target which exists in source. Fields that not present in source are ignored
 
 It's shortcut for **mergeLeftKeys** - `(a, b) => mergeLeftKeys(Object.keys(a), a, b)`
 
@@ -31,10 +42,39 @@ It's shortcut for **mergeLeftKeys** - `(a, b) => mergeLeftKeys(Object.keys(a), a
 const a = { a: 'a', b: 'b' }
 const b = { b: 'newB', c: 'newC' }
 
+// preserve [a.a], replace [a.b] with [b.b], skip [b.c]
 mergeLeft(a, b) // -> { a: 'a', b: 'newB' }
 ```
 
-## Install
+**mergeLeftDropping<T> (dropKeys: string[], source: T, target: T) -> result: T**
+
+Acts as mergeLeft but dropping keys from **dropKeys** argument.
+
+```javascript
+const a = { a: 'a', b: 'b' }
+const b = { a: 'newA', b: 'newB' }
+
+// replace [a.a] with [b.a], drop [b] field from result
+mergeLeftDropping(['b'], a, b) // -> { a: 'newA' }
+```
+
+
+
+**mergeLeftSkipping<T> (skipKeys: string[], source: T, target: T) -> result: T**
+
+Acts as mergeLeft but skip keys from **skipKeys** from being replaced
+
+```javascript
+const a = { a: 'a', b: 'b' }
+const b = { a: 'newA', b: 'newB' }
+
+// replace [a.b] with [b.b], skipping replace [a.a]
+mergeLeftSkipping(['a'], a, b) // -> { a: 'a', b: 'newB' }
+```
+
+
+
+##Install
 
 ```sh
 # with npm
