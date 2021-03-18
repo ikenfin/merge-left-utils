@@ -5,7 +5,7 @@ import { mergeLeftKeys } from './merge-left-keys'
   Shortcut function
   Replace only existing fields in {a} with {b} skipping {b} keys from {keys}
 
-  ex: (['a'], { a: 0, b: 0 }, { a: 1, x: 1 }) -> { b: 0 }
+  ex: (['a'], { a: 0, b: 0 }, { a: 1, b: 1 }) -> { a: 0, b: 1 }
 */
 export function mergeLeftExcept<T extends Record<string, any>> (
   skippingKeys: string[],
