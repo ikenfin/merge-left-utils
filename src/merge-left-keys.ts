@@ -1,4 +1,5 @@
-import { alwaysTrue, isLikeObject, DeepPartial } from './util'
+import type { DeepPartial } from './util'
+import { alwaysTrue, isLikeObject } from './util'
 
 /*
   Function merge objects {a} and {b} by [keys]

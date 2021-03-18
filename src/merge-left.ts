@@ -1,4 +1,4 @@
-import { DeepPartial } from './util'
+import type { DeepPartial } from './util'
 import { mergeLeftKeys } from './merge-left-keys'
 
 /*
