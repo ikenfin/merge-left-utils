@@ -5,6 +5,8 @@
 
 > Merge objects without structural changes
 
+[![Support Richard M. Stallman](https://raw.githubusercontent.com/rms-support-letter/rms-support-letter.github.io/master/assets/badge-64-w-border.png)](https://rms-support-letter.github.io/)
+
 Library provides bunch of functions to simplify objects updates, preserving their initial structure.
 
 I've created this library to simplify work with react state and apollo data in forms, but it may be used in various scenarios when you want update object fields values, but not object structure itself.
