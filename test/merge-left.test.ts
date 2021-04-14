@@ -1,21 +1,65 @@
 import { mergeLeftKeys } from '../src/merge-left-keys'
 import { mergeLeft } from '../src/merge-left'
 
-const source: Record<string, string> = {
+const source: Record<string, any> = {
   a: 'a',
   b: 'b',
-  c: 'c',
-  d: 'd',
-  e: 'e'
+  c: [],
+  d: {},
+  e: [ 'e0', 'e1' ],
+  mapV: new Map([
+    [ 'hello', 'world' ],
+    [ 'foo', 'bar' ]
+  ]),
+  setV: new Set([ 'i', 'am', 'the', 'set!' ])
 }
 
-const target: Record<string, string> = {
+const target: Record<string, any> = {
   a: 'a from target',
   b: 'b from target',
   c: 'c from target',
   e: 'e from target',
-  f: 'f from target'
+  f: 'f from target',
+  mapV: { isPlain: true },
+  setV: [ 'i', 'am', 'the', 'array' ]
 }
+
+test('check is source empty array replaced by target value', () => {
+  expect(mergeLeftKeys([ 'c' ], source, target)).toEqual({
+    c: target.c
+  })
+})
+
+test('check is null/false/NaN/undefined values from source are replaced with target', () => {
+  const source: Record<string, any> = {
+    undefinedValue: undefined,
+    nullValue: null,
+    falseValue: false,
+    nanValue: NaN
+  }
+
+  const target: Record<string, any> = {
+    undefinedValue: 'value',
+    nullValue: 'value',
+    falseValue: true,
+    nanValue: 100
+  }
+
+  expect(mergeLeft(source, target)).toEqual(target)
+})
+
+test('check Map/Set types work correctly', () => {
+  const targetMapValue = target['mapV']
+  const targetSetValue = target['setV']
+
+  expect(mergeLeftKeys([ 'mapV' ], source, target)).toEqual({
+    mapV: targetMapValue
+  })
+
+  expect(mergeLeftKeys([ 'setV' ], source, target)).toEqual({
+    setV: targetSetValue
+  })
+})
 
 test('check if mergeLeftKeys does nothing on falsy target value', () => {
   expect(mergeLeftKeys([ 'a' ], source, null)).toEqual(source)
