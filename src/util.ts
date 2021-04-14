@@ -4,9 +4,14 @@ export type DeepPartial<T> = {
 
 /*
   naive check is input is like Object
+
+  source: https://stackoverflow.com/a/38555871
 */
 export const isLikeObject = (value: any) =>
-  (value != null && value.constructor === Object) || value instanceof Object
+  typeof value === 'object' &&
+  value !== null &&
+  value.constructor === Object &&
+  Object.prototype.toString.call(value) === '[object Object]'
 
 /*
   Function which always return true
