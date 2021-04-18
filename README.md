@@ -34,7 +34,7 @@ mergeLeftKeys(['b'], a, b) // -> { b: 'newB' }
 mergeLeftKeys(['a', 'b'], a, b, (key) => key !== 'b')
 ```
 
-**mergeLeft<T> (source: T, target: T) -> result: T**
+**mergeLeft<T> (source: T, target: T, replaceDecision: Function) -> result: T**
 
 Simple binary function - copies all fields from target which exists in source. Fields that not present in source are ignored
 
@@ -74,9 +74,11 @@ const b = { a: 'newA', b: 'newB' }
 mergeLeftExcept(['a'], a, b) // -> { a: 'a', b: 'newB' }
 ```
 
+**mergeLeftOnly<T> (replaceableKeys: string[], source: T, target: T) -> result: T**
 
+Acts as mergeLeft, skipping all keys from being replaced which are not listed in **replaceableKeys**
 
-##Install
+## Install
 
 ```sh
 # with npm
