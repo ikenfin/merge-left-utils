@@ -1,5 +1,6 @@
 import type { DeepPartial } from './util'
 import { mergeLeftKeys } from './merge-left-keys'
+import { alwaysTrue } from './util'
 
 /*
   Shortcut function
@@ -9,7 +10,12 @@ import { mergeLeftKeys } from './merge-left-keys'
 */
 export function mergeLeft<T extends Record<string, any>> (
   source: T,
-  target?: DeepPartial<T>
+  target?: DeepPartial<T>,
+  customLogic: (
+    key: string,
+    source: T,
+    target: DeepPartial<T>
+  ) => boolean = alwaysTrue
 ): T {
-  return mergeLeftKeys<T>(Object.keys(source), source, target)
+  return mergeLeftKeys<T>(Object.keys(source), source, target, customLogic)
 }
