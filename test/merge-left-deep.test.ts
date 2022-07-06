@@ -27,6 +27,33 @@ test('Check merge on third levels', () => {
   expect(callResult).toHaveProperty('fieldC.fieldCB.fieldCBA', 'targetCBA')
 })
 
+test('Check merge replacing deep nested values', () => {
+  const source = {
+    a: {
+      aa: {
+        aaa: undefined as any,
+        aab: 'source aab'
+      },
+      ab: {
+        aba: null as any,
+        abb: {},
+        abc: [ 'source 1', 'source 2' ]
+      }
+    }
+  }
+
+  const callResult = mergeLeft<Record<string, any>>(source, {
+    a: {
+      aa: { aaa: 'aaa target' },
+      ab: { abb: undefined, abc: 'abc target' }
+    }
+  })
+
+  expect(callResult).toHaveProperty('a.aa.aaa', 'aaa target')
+  expect(callResult).toHaveProperty('a.ab.abb', {})
+  expect(callResult).toHaveProperty('a.ab.abc', 'abc target')
+})
+
 test('Check nested contains only source keys', () => {
   const callResult = mergeLeft<Record<string, any>>(source, {
     fieldD: 'should not exist on callResult!',
