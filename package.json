@@ -24,10 +24,10 @@
   "scripts": {
     "bundle": "NODE_ENV=production rollup -c",
     "dev": "NODE_ENV=develop rollup -c",
-    "test": "jest test/**.test.ts",
-    "test:coverage": "jest --coverage test/**.test.ts",
-    "lint": "eslint ./src",
-    "lint:tests": "eslint ./test"
+    "test": "jest test/*.test.ts",
+    "test:coverage": "jest --coverage test/*.test.ts",
+    "lint": "eslint ./src/**/*.ts",
+    "lint:tests": "eslint ./test/**/*.ts"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.17",
