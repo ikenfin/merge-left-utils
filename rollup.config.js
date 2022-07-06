@@ -6,7 +6,6 @@ import commonjs from 'rollup-plugin-commonjs'
 import { eslint } from 'rollup-plugin-eslint'
 import autoExternal from 'rollup-plugin-auto-external'
 import rollupTypescript from 'rollup-plugin-typescript2'
-import typescript from 'typescript'
 
 export default {
   input: 'index.ts',
