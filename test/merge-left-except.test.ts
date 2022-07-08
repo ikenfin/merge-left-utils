@@ -1,5 +1,4 @@
-import { mergeLeft } from '../src/merge-left'
-import { mergeLeftExcept } from '../src/merge-left-except';
+import { mergeLeft, mergeLeftExcept } from '../dist'
 
 const source: Record<string, string> = {
   a: 'a',
@@ -23,7 +22,7 @@ test('Check is empty skippingKeys returns same result with mergeLeft', () => {
 })
 
 test('Check is skipped keys not replaced from B', () => {
-  expect(mergeLeftExcept(['a', 'b'], source, target)).toEqual({
+  expect(mergeLeftExcept([ 'a', 'b' ], source, target)).toEqual({
     a: source.a,
     b: source.b,
     c: target.c,

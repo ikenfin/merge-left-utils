@@ -1,4 +1,4 @@
-import { mergeLeftTruthy } from './../dist'
+import { mergeLeftTruthy } from '../dist'
 
 const source: Record<string, string> = {
   a: 'source:a',

@@ -1,5 +1,4 @@
-import { mergeLeft } from '../src/merge-left'
-import { mergeLeftDropping } from '../src/merge-left-dropping'
+import { mergeLeft, mergeLeftDropping } from '../dist'
 
 const source: Record<string, string> = {
   a: 'a',
@@ -19,11 +18,13 @@ const target: Record<string, string> = {
 
 test('Check is empty dropKeys returns same result with mergeLeft', () => {
   expect(mergeLeft(source, null)).toEqual(mergeLeftDropping([], source, null))
-  expect(mergeLeft(source, target)).toEqual(mergeLeftDropping([], source, target))
+  expect(mergeLeft(source, target)).toEqual(
+    mergeLeftDropping([], source, target)
+  )
 })
 
 test('Check is keys dropped and not replaced from B', () => {
-  expect(mergeLeftDropping(['a', 'b'], source, target)).toEqual({
+  expect(mergeLeftDropping([ 'a', 'b' ], source, target)).toEqual({
     c: target.c,
     d: source.d,
     e: target.e

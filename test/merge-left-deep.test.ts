@@ -1,4 +1,4 @@
-import { mergeLeft } from '../src/merge-left'
+import { mergeLeft } from '../dist'
 
 const source = {
   fieldA: 'sourceA',
