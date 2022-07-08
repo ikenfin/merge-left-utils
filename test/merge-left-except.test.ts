@@ -1,4 +1,5 @@
-import { mergeLeft, mergeLeftExcept } from '../dist'
+import { mergeLeft } from '../src/merge-left'
+import { mergeLeftExcept } from '../src/merge-left-except'
 
 const source: Record<string, string> = {
   a: 'a',

@@ -24,7 +24,6 @@
   "scripts": {
     "bundle": "NODE_ENV=production rollup -c",
     "dev": "NODE_ENV=develop rollup -c",
-    "pretest": "yarn run bundle",
     "test": "jest",
     "test:coverage": "jest --coverage test/*.test.ts",
     "lint": "eslint ./src/**/*.ts",

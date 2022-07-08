@@ -1,4 +1,5 @@
-import { mergeLeft, mergeLeftDropping } from '../dist'
+import { mergeLeft } from '../src/merge-left'
+import { mergeLeftDropping } from '../src/merge-left-dropping'
 
 const source: Record<string, string> = {
   a: 'a',

@@ -1,4 +1,4 @@
-import { mergeLeftOnly } from '../dist'
+import { mergeLeftOnly } from '../src/merge-left-only'
 
 const source: Record<string, string> = {
   a: 'a',

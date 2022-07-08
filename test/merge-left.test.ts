@@ -1,4 +1,5 @@
-import { mergeLeftKeys, mergeLeft } from '../dist'
+import { mergeLeftKeys } from '../src/merge-left-keys'
+import { mergeLeft } from '../src/merge-left'
 
 const source: Record<string, any> = {
   a: 'a',
