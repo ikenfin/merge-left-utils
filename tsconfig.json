@@ -6,10 +6,11 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "outDir": "./dist",
-    "target": "es5"
+    "target": "es5",
+    "allowJs": true
   },
   "include": [
-    "index.ts",
+    "index.ts"
     // "src/**/*"
   ],
   "exclude": ["node_modules"]
