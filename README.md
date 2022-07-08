@@ -1,11 +1,9 @@
 # merge-left-utils
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#)
-[![Twitter: realtominoff](https://img.shields.io/twitter/follow/realtominoff.svg?style=social)](https://twitter.com/realtominoff)
+[![codecov](https://codecov.io/gh/ikenfin/merge-left-utils/branch/master/graph/badge.svg?token=RBH4ZOXDBW)](https://codecov.io/gh/ikenfin/merge-left-utils)
 
 > Merge objects without structural changes
-
-[![Support Richard M. Stallman](https://raw.githubusercontent.com/rms-support-letter/rms-support-letter.github.io/master/assets/badge-64-w-border.png)](https://rms-support-letter.github.io/)
 
 Library provides bunch of functions to simplify objects updates, preserving their initial structure.
 
@@ -78,6 +76,22 @@ mergeLeftExcept(['a'], a, b) // -> { a: 'a', b: 'newB' }
 
 Acts as mergeLeft, skipping all keys from being replaced which are not listed in **replaceableKeys**
 
+
+
+**mergeLeftTruthy<T> (source: T, target: T, replaceDecision: Function) -> result: T**
+
+Acts as mergeLeft, skipping all falsy values
+
+```js
+const a = { a: 'a', b: 'b', c: 'c' }
+const b = { a: undefined, b: '', c: 'newC' }
+
+// replace [a.c] with [b.c], skipping others
+mergeLeftTruthy(a, b) // -> { a: 'a', b: 'b' }
+```
+
+
+
 ## Install
 
 ```sh
@@ -102,7 +116,6 @@ yarn run test
 👤 **ikenfin**
 
 * Website: https://ikfi.ru
-* Twitter: [@realtominoff](https://twitter.com/realtominoff)
 * Github: [@ikenfin](https://github.com/ikenfin)
 
 ## Show your support
