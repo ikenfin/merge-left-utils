@@ -1,7 +1,7 @@
 import type { DeepPartial } from './util'
 import { alwaysTrue, isLikeObject } from './util'
 
-/*
+/**
   Function merge objects {a} and {b} by [keys]
   If key from {b} is not presented in {a} - it does nothing
   If both objects has key - result will get key from {b}

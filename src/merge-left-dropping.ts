@@ -1,7 +1,7 @@
 import type { DeepPartial } from './util'
 import { mergeLeftKeys } from './merge-left-keys'
 
-/*
+/**
   Shortcut function
   Drops keys listed in {dropKeys} and replace existing fields in {a} with {b}
 
@@ -12,14 +12,9 @@ export function mergeLeftDropping<T extends Record<string, any>> (
   source: T,
   target?: DeepPartial<T>
 ): T {
-  const replaceableKeys = Object.keys(source)
-    .filter((keyOfSource) =>
-      dropKeys.indexOf(keyOfSource) === -1
-    )
-
-  return mergeLeftKeys<T>(
-    replaceableKeys,
-    source,
-    target
+  const replaceableKeys = Object.keys(source).filter(
+    (keyOfSource) => dropKeys.indexOf(keyOfSource) === -1
   )
+
+  return mergeLeftKeys<T>(replaceableKeys, source, target)
 }

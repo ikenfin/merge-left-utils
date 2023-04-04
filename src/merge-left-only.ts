@@ -1,7 +1,7 @@
 import type { DeepPartial } from './util'
 import { mergeLeft } from './merge-left'
 
-/*
+/**
   Shortcut function
   Replace only fields from [keys] arg in {a} with {b}
 

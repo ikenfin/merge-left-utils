@@ -1,7 +1,7 @@
 import type { DeepPartial } from './util'
 import { mergeLeftKeys } from './merge-left-keys'
 
-/*
+/**
   Shortcut function
   Replace only existing fields in {a} with {b} skipping {b} keys from {keys}
 

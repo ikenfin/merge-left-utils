@@ -2,7 +2,7 @@ import type { DeepPartial } from './util'
 import { mergeLeftKeys } from './merge-left-keys'
 import { alwaysTrue } from './util'
 
-/*
+/**
   Shortcut function
   Replace only existing fields in {a} with {b}
 
