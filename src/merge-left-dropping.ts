@@ -8,7 +8,7 @@ import { mergeLeftKeys } from './merge-left-keys'
   ex: (['a'], { a: 0, b: 0 }, { a: 1, x: 1 }) -> { b: 0 }
 */
 export function mergeLeftDropping<T extends Record<string, any>> (
-  dropKeys: (keyof T)[],
+  dropKeys: Array<keyof T>,
   source: T,
   target?: DeepPartial<T>
 ): T {

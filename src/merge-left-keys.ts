@@ -14,7 +14,7 @@ import { alwaysTrue, isLikeObject } from './util'
     if it returns true - then get value from {b}, else from {a}
 */
 export function mergeLeftKeys<T extends Record<string, any>> (
-  keys: (keyof T)[],
+  keys: Array<keyof T>,
   source: T,
   target?: DeepPartial<T>,
   customLogic: (
