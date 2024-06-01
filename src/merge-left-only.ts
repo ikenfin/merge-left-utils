@@ -8,7 +8,7 @@ import { mergeLeft } from './merge-left'
   ex: (['b'], { a: 0, b: 0 }, { a: 1, b: 1 }) -> { a: 0, b: 1 }
 */
 export function mergeLeftOnly<T extends Record<string, any>> (
-  keys: [keyof T] | string[],
+  keys: Array<keyof T>,
   source: T,
   target?: DeepPartial<T>
 ): T {

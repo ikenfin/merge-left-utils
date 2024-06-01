@@ -8,7 +8,7 @@ import { mergeLeftKeys } from './merge-left-keys'
   ex: (['a'], { a: 0, b: 0 }, { a: 1, b: 1 }) -> { a: 0, b: 1 }
 */
 export function mergeLeftExcept<T extends Record<string, any>> (
-  skippingKeys: string[],
+  skippingKeys: (keyof T)[],
   source: T,
   target?: DeepPartial<T>
 ): T {
