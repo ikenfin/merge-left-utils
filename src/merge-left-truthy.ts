@@ -13,7 +13,7 @@ export function mergeLeftTruthy<T extends Record<string, any>> (
   source: T,
   target?: DeepPartial<T>,
   customLogic: (
-    key: string,
+    key: keyof T,
     source: T,
     target: DeepPartial<T>
   ) => boolean = alwaysTrue

@@ -14,11 +14,11 @@ import { alwaysTrue, isLikeObject } from './util'
     if it returns true - then get value from {b}, else from {a}
 */
 export function mergeLeftKeys<T extends Record<string, any>> (
-  keys: string[],
+  keys: Array<keyof T>,
   source: T,
   target?: DeepPartial<T>,
   customLogic: (
-    key: string,
+    key: keyof T,
     source: T,
     target: DeepPartial<T>
   ) => boolean = alwaysTrue
@@ -27,7 +27,7 @@ export function mergeLeftKeys<T extends Record<string, any>> (
     return source
   }
 
-  return keys.reduce<T>((prev: T, key) => {
+  return keys.reduce<T>((prev: T, key: keyof T) => {
     if (target.hasOwnProperty(key) && customLogic(key, source, target)) {
       if (isLikeObject(source[key])) {
         return {
