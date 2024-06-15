@@ -28,7 +28,7 @@ export function mergeLeftKeys<T extends Record<string, any>> (
   }
 
   return keys.reduce<T>((prev: T, key: keyof T) => {
-    if (target.hasOwnProperty(key) && customLogic(key, source, target)) {
+    if (Object.prototype.hasOwnProperty.call(target, key) && customLogic(key, source, target)) {
       if (isLikeObject(source[key])) {
         return {
           ...prev,

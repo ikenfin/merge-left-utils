@@ -128,3 +128,18 @@ test('test mergeLeft result contains only source fields', () => {
   expect(callResult).toEqual(replacementResult)
   expect(Object.keys(callResult)).toEqual(Object.keys(source))
 })
+
+test('Test nullish prototype case', () => {
+  const nullishProto = {
+    a: {
+      b: {
+        c: 'd',
+        e: 'f'
+      }
+    }
+  }
+
+  Object.setPrototypeOf(nullishProto, null)
+  expect(Object.getPrototypeOf(nullishProto)).toBe(null)
+  expect(mergeLeft(nullishProto, nullishProto)).toEqual(nullishProto)
+})
